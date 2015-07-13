@@ -2,7 +2,7 @@
 
 React компонент для списка с автоподгрузкой данных при скоролле. Включает кастомный скроллбар и фиксирующийся элемент.
 
-[Примеры](https://github.com/kocmozzz/react-infinite-list).
+[Примеры](https://kocmozzz.github.com/react-infinite-list).
 
 **Доступные свойства**
 ```js
