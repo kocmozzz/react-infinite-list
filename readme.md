@@ -2,19 +2,19 @@
 
 React компонент для списка с автоподгрузкой данных при скоролле. Включает кастомный скроллбар и фиксирующийся элемент.
 
-[Примеры][https://github.com/kocmozzz/react-infinite-list].
+[Примеры](https://github.com/kocmozzz/react-infinite-list).
 
-**Доступные свойтсва**
+**Доступные свойства**
 ```js
 {
     list: React.PropTypes.array.isRequired,             // массив элементов
     itemPosition: React.PropTypes.object,               // объект с данными текущего пользователя
     showWinner: React.PropTypes.bool,                   // показывать победителя в списке или нет
-    isEnd: React.PropTypes.bool,                        // достигла конца списка или можно подгрузить еще?
+    isEnd: React.PropTypes.bool,                        // достигли конца списка или можно подгрузить еще?
     onScroll: React.PropTypes.func,                     // on scroll callback, определяет как подгрузить еще данные
     onBottomPinned: React.PropTypes.func,               // callback, когда текущий пользователь прилип снизу
     onTopPinned: React.PropTypes.func,                  // callback, когда пользователь прилип сверху
-    onTopUnpinned: React.PropTypes.func,                // callback, когда пользователь отлип снизу
+    onTopUnpinned: React.PropTypes.func,                // callback, когда пользователь отлип сверху
     classes: React.PropTypes.object.isRequired,         // css классы
     showWinner: React.PropTypes.bool.isRequired,        // показывать победителя или нет
     userUrl: React.PropTypes.string.isRequired,         
@@ -59,7 +59,7 @@ description и winnersDescription - необязательны.
     winnersDescription: "&laquo;Winners description&raquo;"
 }
 ```
-description и winnersDescription - необязательны. Позиция текущего пользователя в рейтинге считается 1, а не с 0.
+description и winnersDescription - необязательны. Позиция текущего пользователя в рейтинге считается с 1, а не с 0.
 
 **Пример инициализации**
 ```js
