@@ -1,0 +1,6 @@
+node_modules
+*.log
+dist
+.tmp
+.DS_Store
+.idea
