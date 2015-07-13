@@ -19,7 +19,7 @@
     "list"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/kocmozzz/react-infinite-list",
+  "homepage": "https://kocmozzz.github.io/react-infinite-list",
   "dependencies": {
     "lodash": "3.x.x",
     "classnames": "^1.2.0"
