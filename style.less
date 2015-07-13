@@ -1,0 +1,184 @@
+/* utils */
+.clearfix {
+  zoom:1;
+  &:before, &:after{ content:""; display:table; }
+  &:after{ clear: both; }
+}
+.hidden {
+  display: none !important;
+}
+
+.listWrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.list {
+  padding: 0 8px 0 0;
+  height: 400px;
+  counter-reset: item-counter;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  border-bottom: 1px solid #ccc;
+
+  ol, ul {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.listItem {
+  display: block;
+  position: relative;
+  margin: 0 0 8px;
+  padding: 0 0 0 32px;
+
+  &:before {
+    content: counter(item-counter);
+    counter-increment: item-counter;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 48px;
+    color: #000;
+  }
+
+  &__counter {
+    float: left;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 32px;
+    color: #000;
+  }
+
+  &-current {
+    padding: 0;
+    position: relative;
+    &:before {
+      display: none;
+    }
+  }
+
+  &-loader {
+    text-align: center;
+    background-color: #fdbf37;
+    &:before {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    .clearfix;
+    transition: box-shadow 500ms;
+    padding: 8px 0;
+
+    &-highlighted {
+      color: #fdbf37;
+      border-bottom: 1px dashed rgba(255, 255, 255, .25);
+    }
+
+    &-invisible {
+      visibility: hidden;
+    }
+
+    &.pinnedToTop {
+      background-color: #ccc;
+      -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    }
+  }
+
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    margin: 0 8px 0 0;
+    float: left;
+  }
+
+  &__name {
+    line-height: 18px;
+    padding: 0 8px 0 0;
+    float: left;
+    position: relative;
+    white-space: pre-line;
+  }
+
+  &__score {
+    float: right;
+    padding: 0 8px 0 0;
+
+    &__nums {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 32px;
+    }
+
+    &__prize {
+      padding: 0 10px 0 0;
+      &-highlighted {
+        color: #fdbf37;
+      }
+    }
+
+    &-highlighted {
+
+    }
+  }
+
+  &:hover {
+    background-color: #ccc;
+  }
+
+  &-highlighted {
+
+  }
+
+}
+
+.list__scrollBar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 4px;
+  width: 8px;
+  background-color: transparent;
+  top: 2px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+
+.list__scrollBar__thumb {
+  position: relative;
+  width: 100%;
+  height: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 8px;
+
+  &:hover, &:active {
+    background-color: rgba(0, 0, 0, .7);
+  }
+}
+
+.list__scrollTest {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -9999px;
+  overflow: scroll;
+  -ms-overflow-style: scrollbar;
+}
