@@ -271,6 +271,10 @@ var InfiniteList = React.createClass({
 
     this._isPositionInList();
 
+    if(this._positionInList) {
+      this._setPositionElement();
+    }
+
     this._getScrollbarWidth();
 
     this._cache.onTopPinned = _.once(this.props.onTopPinned);
@@ -297,13 +301,8 @@ var InfiniteList = React.createClass({
   },
 
   componentDidUpdate: function() {
-    if(this._positionInList && !this._positionDOMNode && this.props.itemPosition) {
-      this._positionDOMNode = this._scrollView.firstChild.childNodes[this.props.itemPosition.position - 1];
-      this._positionDOMNodeHeight = this._positionDOMNode.offsetHeight;
-
-      this.setState({
-        isPinnedItemInvisible: this._isPositionVisible()
-      });
+    if(this._positionInList && !this._positionDOMNode) {
+      this._setPositionElement();
     }
 
     this._update();
@@ -362,6 +361,19 @@ var InfiniteList = React.createClass({
     if(this.props.itemPosition) {
       this._positionInList = this.props.itemPosition.position <= this._listCount;
     }
+  },
+
+  /**
+   * Set position DOM element, it's height and visibility
+   * @private
+   */
+  _setPositionElement: function() {
+    this._positionDOMNode = this._scrollView.firstChild.childNodes[this.props.itemPosition.position - 1];
+    this._positionDOMNodeHeight = this._positionDOMNode.offsetHeight;
+
+    this.setState({
+      isPinnedItemInvisible: this._isPositionVisible()
+    });
   },
 
   /**
